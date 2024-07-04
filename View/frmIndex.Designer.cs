@@ -31,27 +31,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIndex));
             panel1 = new Panel();
             panelFactura = new Panel();
-            btnReportesFact = new Button();
-            btnRegistrarFact = new Button();
+            btnReportesFacturas = new Button();
+            btnRegistrarFacturas = new Button();
             btnFacturaOptions = new Button();
             panelProduct = new Panel();
-            btnReportesProd = new Button();
-            btnRegistrarProd = new Button();
+            btnReportesProductos = new Button();
+            btnRegistrarProductos = new Button();
             btnProductOptions = new Button();
             panelCustomer = new Panel();
-            btnReportesCust = new Button();
-            btnResgistrarCust = new Button();
+            btnReportesCustomer = new Button();
+            btnResgistrarCustomer = new Button();
             btnCustomerOptions = new Button();
             btnHome = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panelChilForm = new Panel();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             panelFactura.SuspendLayout();
             panelProduct.SuspendLayout();
             panelCustomer.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelChilForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -75,43 +78,45 @@
             // panelFactura
             // 
             panelFactura.BackColor = Color.FromArgb(35, 32, 39);
-            panelFactura.Controls.Add(btnReportesFact);
-            panelFactura.Controls.Add(btnRegistrarFact);
+            panelFactura.Controls.Add(btnReportesFacturas);
+            panelFactura.Controls.Add(btnRegistrarFacturas);
             panelFactura.Dock = DockStyle.Top;
             panelFactura.Location = new Point(0, 434);
             panelFactura.Name = "panelFactura";
             panelFactura.Size = new Size(200, 76);
             panelFactura.TabIndex = 9;
             // 
-            // btnReportesFact
+            // btnReportesFacturas
             // 
-            btnReportesFact.Dock = DockStyle.Top;
-            btnReportesFact.FlatAppearance.BorderSize = 0;
-            btnReportesFact.FlatStyle = FlatStyle.Flat;
-            btnReportesFact.ForeColor = Color.LightGray;
-            btnReportesFact.Location = new Point(0, 37);
-            btnReportesFact.Name = "btnReportesFact";
-            btnReportesFact.Padding = new Padding(35, 0, 0, 0);
-            btnReportesFact.Size = new Size(200, 37);
-            btnReportesFact.TabIndex = 6;
-            btnReportesFact.Text = "REPORTES";
-            btnReportesFact.TextAlign = ContentAlignment.MiddleLeft;
-            btnReportesFact.UseVisualStyleBackColor = true;
+            btnReportesFacturas.Dock = DockStyle.Top;
+            btnReportesFacturas.FlatAppearance.BorderSize = 0;
+            btnReportesFacturas.FlatStyle = FlatStyle.Flat;
+            btnReportesFacturas.ForeColor = Color.LightGray;
+            btnReportesFacturas.Location = new Point(0, 37);
+            btnReportesFacturas.Name = "btnReportesFacturas";
+            btnReportesFacturas.Padding = new Padding(35, 0, 0, 0);
+            btnReportesFacturas.Size = new Size(200, 37);
+            btnReportesFacturas.TabIndex = 6;
+            btnReportesFacturas.Text = "REPORTES";
+            btnReportesFacturas.TextAlign = ContentAlignment.MiddleLeft;
+            btnReportesFacturas.UseVisualStyleBackColor = true;
+            btnReportesFacturas.Click += btnReportesFacturas_Click;
             // 
-            // btnRegistrarFact
+            // btnRegistrarFacturas
             // 
-            btnRegistrarFact.Dock = DockStyle.Top;
-            btnRegistrarFact.FlatAppearance.BorderSize = 0;
-            btnRegistrarFact.FlatStyle = FlatStyle.Flat;
-            btnRegistrarFact.ForeColor = Color.LightGray;
-            btnRegistrarFact.Location = new Point(0, 0);
-            btnRegistrarFact.Name = "btnRegistrarFact";
-            btnRegistrarFact.Padding = new Padding(35, 0, 0, 0);
-            btnRegistrarFact.Size = new Size(200, 37);
-            btnRegistrarFact.TabIndex = 5;
-            btnRegistrarFact.Text = "REGISTRAR";
-            btnRegistrarFact.TextAlign = ContentAlignment.MiddleLeft;
-            btnRegistrarFact.UseVisualStyleBackColor = true;
+            btnRegistrarFacturas.Dock = DockStyle.Top;
+            btnRegistrarFacturas.FlatAppearance.BorderSize = 0;
+            btnRegistrarFacturas.FlatStyle = FlatStyle.Flat;
+            btnRegistrarFacturas.ForeColor = Color.LightGray;
+            btnRegistrarFacturas.Location = new Point(0, 0);
+            btnRegistrarFacturas.Name = "btnRegistrarFacturas";
+            btnRegistrarFacturas.Padding = new Padding(35, 0, 0, 0);
+            btnRegistrarFacturas.Size = new Size(200, 37);
+            btnRegistrarFacturas.TabIndex = 5;
+            btnRegistrarFacturas.Text = "REGISTRAR";
+            btnRegistrarFacturas.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarFacturas.UseVisualStyleBackColor = true;
+            btnRegistrarFacturas.Click += btnRegistrarFacturas_Click;
             // 
             // btnFacturaOptions
             // 
@@ -132,43 +137,45 @@
             // panelProduct
             // 
             panelProduct.BackColor = Color.FromArgb(35, 32, 39);
-            panelProduct.Controls.Add(btnReportesProd);
-            panelProduct.Controls.Add(btnRegistrarProd);
+            panelProduct.Controls.Add(btnReportesProductos);
+            panelProduct.Controls.Add(btnRegistrarProductos);
             panelProduct.Dock = DockStyle.Top;
             panelProduct.Location = new Point(0, 318);
             panelProduct.Name = "panelProduct";
             panelProduct.Size = new Size(200, 76);
             panelProduct.TabIndex = 7;
             // 
-            // btnReportesProd
+            // btnReportesProductos
             // 
-            btnReportesProd.Dock = DockStyle.Top;
-            btnReportesProd.FlatAppearance.BorderSize = 0;
-            btnReportesProd.FlatStyle = FlatStyle.Flat;
-            btnReportesProd.ForeColor = Color.LightGray;
-            btnReportesProd.Location = new Point(0, 37);
-            btnReportesProd.Name = "btnReportesProd";
-            btnReportesProd.Padding = new Padding(35, 0, 0, 0);
-            btnReportesProd.Size = new Size(200, 37);
-            btnReportesProd.TabIndex = 6;
-            btnReportesProd.Text = "REPORTES";
-            btnReportesProd.TextAlign = ContentAlignment.MiddleLeft;
-            btnReportesProd.UseVisualStyleBackColor = true;
+            btnReportesProductos.Dock = DockStyle.Top;
+            btnReportesProductos.FlatAppearance.BorderSize = 0;
+            btnReportesProductos.FlatStyle = FlatStyle.Flat;
+            btnReportesProductos.ForeColor = Color.LightGray;
+            btnReportesProductos.Location = new Point(0, 37);
+            btnReportesProductos.Name = "btnReportesProductos";
+            btnReportesProductos.Padding = new Padding(35, 0, 0, 0);
+            btnReportesProductos.Size = new Size(200, 37);
+            btnReportesProductos.TabIndex = 6;
+            btnReportesProductos.Text = "REPORTES";
+            btnReportesProductos.TextAlign = ContentAlignment.MiddleLeft;
+            btnReportesProductos.UseVisualStyleBackColor = true;
+            btnReportesProductos.Click += btnReportesProductos_Click;
             // 
-            // btnRegistrarProd
+            // btnRegistrarProductos
             // 
-            btnRegistrarProd.Dock = DockStyle.Top;
-            btnRegistrarProd.FlatAppearance.BorderSize = 0;
-            btnRegistrarProd.FlatStyle = FlatStyle.Flat;
-            btnRegistrarProd.ForeColor = Color.LightGray;
-            btnRegistrarProd.Location = new Point(0, 0);
-            btnRegistrarProd.Name = "btnRegistrarProd";
-            btnRegistrarProd.Padding = new Padding(35, 0, 0, 0);
-            btnRegistrarProd.Size = new Size(200, 37);
-            btnRegistrarProd.TabIndex = 5;
-            btnRegistrarProd.Text = "REGISTRAR";
-            btnRegistrarProd.TextAlign = ContentAlignment.MiddleLeft;
-            btnRegistrarProd.UseVisualStyleBackColor = true;
+            btnRegistrarProductos.Dock = DockStyle.Top;
+            btnRegistrarProductos.FlatAppearance.BorderSize = 0;
+            btnRegistrarProductos.FlatStyle = FlatStyle.Flat;
+            btnRegistrarProductos.ForeColor = Color.LightGray;
+            btnRegistrarProductos.Location = new Point(0, 0);
+            btnRegistrarProductos.Name = "btnRegistrarProductos";
+            btnRegistrarProductos.Padding = new Padding(35, 0, 0, 0);
+            btnRegistrarProductos.Size = new Size(200, 37);
+            btnRegistrarProductos.TabIndex = 5;
+            btnRegistrarProductos.Text = "REGISTRAR";
+            btnRegistrarProductos.TextAlign = ContentAlignment.MiddleLeft;
+            btnRegistrarProductos.UseVisualStyleBackColor = true;
+            btnRegistrarProductos.Click += btnRegistrarProductos_Click;
             // 
             // btnProductOptions
             // 
@@ -189,44 +196,46 @@
             // panelCustomer
             // 
             panelCustomer.BackColor = Color.FromArgb(35, 32, 39);
-            panelCustomer.Controls.Add(btnReportesCust);
-            panelCustomer.Controls.Add(btnResgistrarCust);
+            panelCustomer.Controls.Add(btnReportesCustomer);
+            panelCustomer.Controls.Add(btnResgistrarCustomer);
             panelCustomer.Dock = DockStyle.Top;
             panelCustomer.Location = new Point(0, 202);
             panelCustomer.Name = "panelCustomer";
             panelCustomer.Size = new Size(200, 76);
             panelCustomer.TabIndex = 5;
             // 
-            // btnReportesCust
+            // btnReportesCustomer
             // 
-            btnReportesCust.BackColor = Color.FromArgb(35, 32, 40);
-            btnReportesCust.Dock = DockStyle.Top;
-            btnReportesCust.FlatAppearance.BorderSize = 0;
-            btnReportesCust.FlatStyle = FlatStyle.Flat;
-            btnReportesCust.ForeColor = Color.LightGray;
-            btnReportesCust.Location = new Point(0, 37);
-            btnReportesCust.Name = "btnReportesCust";
-            btnReportesCust.Padding = new Padding(35, 0, 0, 0);
-            btnReportesCust.Size = new Size(200, 37);
-            btnReportesCust.TabIndex = 4;
-            btnReportesCust.Text = "REPORTES";
-            btnReportesCust.TextAlign = ContentAlignment.MiddleLeft;
-            btnReportesCust.UseVisualStyleBackColor = false;
+            btnReportesCustomer.BackColor = Color.FromArgb(35, 32, 40);
+            btnReportesCustomer.Dock = DockStyle.Top;
+            btnReportesCustomer.FlatAppearance.BorderSize = 0;
+            btnReportesCustomer.FlatStyle = FlatStyle.Flat;
+            btnReportesCustomer.ForeColor = Color.LightGray;
+            btnReportesCustomer.Location = new Point(0, 37);
+            btnReportesCustomer.Name = "btnReportesCustomer";
+            btnReportesCustomer.Padding = new Padding(35, 0, 0, 0);
+            btnReportesCustomer.Size = new Size(200, 37);
+            btnReportesCustomer.TabIndex = 4;
+            btnReportesCustomer.Text = "REPORTES";
+            btnReportesCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnReportesCustomer.UseVisualStyleBackColor = false;
+            btnReportesCustomer.Click += btnReportesCustomer_Click;
             // 
-            // btnResgistrarCust
+            // btnResgistrarCustomer
             // 
-            btnResgistrarCust.Dock = DockStyle.Top;
-            btnResgistrarCust.FlatAppearance.BorderSize = 0;
-            btnResgistrarCust.FlatStyle = FlatStyle.Flat;
-            btnResgistrarCust.ForeColor = Color.LightGray;
-            btnResgistrarCust.Location = new Point(0, 0);
-            btnResgistrarCust.Name = "btnResgistrarCust";
-            btnResgistrarCust.Padding = new Padding(35, 0, 0, 0);
-            btnResgistrarCust.Size = new Size(200, 37);
-            btnResgistrarCust.TabIndex = 3;
-            btnResgistrarCust.Text = "REGISTRAR";
-            btnResgistrarCust.TextAlign = ContentAlignment.MiddleLeft;
-            btnResgistrarCust.UseVisualStyleBackColor = true;
+            btnResgistrarCustomer.Dock = DockStyle.Top;
+            btnResgistrarCustomer.FlatAppearance.BorderSize = 0;
+            btnResgistrarCustomer.FlatStyle = FlatStyle.Flat;
+            btnResgistrarCustomer.ForeColor = Color.LightGray;
+            btnResgistrarCustomer.Location = new Point(0, 0);
+            btnResgistrarCustomer.Name = "btnResgistrarCustomer";
+            btnResgistrarCustomer.Padding = new Padding(35, 0, 0, 0);
+            btnResgistrarCustomer.Size = new Size(200, 37);
+            btnResgistrarCustomer.TabIndex = 3;
+            btnResgistrarCustomer.Text = "REGISTRAR";
+            btnResgistrarCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnResgistrarCustomer.UseVisualStyleBackColor = true;
+            btnResgistrarCustomer.Click += btnResgistrarCustomer_Click;
             // 
             // btnCustomerOptions
             // 
@@ -258,6 +267,7 @@
             btnHome.Text = "HOME";
             btnHome.TextAlign = ContentAlignment.MiddleLeft;
             btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // panel2
             // 
@@ -270,6 +280,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
@@ -282,11 +293,24 @@
             // panelChilForm
             // 
             panelChilForm.BackColor = Color.FromArgb(32, 30, 45);
+            panelChilForm.Controls.Add(pictureBox2);
             panelChilForm.Dock = DockStyle.Fill;
             panelChilForm.Location = new Point(200, 0);
             panelChilForm.Name = "panelChilForm";
             panelChilForm.Size = new Size(734, 561);
             panelChilForm.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.None;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(248, 187);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(255, 178);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // frmIndex
             // 
@@ -296,6 +320,7 @@
             ClientSize = new Size(934, 561);
             Controls.Add(panelChilForm);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MinimumSize = new Size(950, 600);
             Name = "frmIndex";
             StartPosition = FormStartPosition.CenterScreen;
@@ -306,6 +331,8 @@
             panelCustomer.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelChilForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -320,13 +347,14 @@
         private Button btnFacturaOptions;
         private Panel panelProduct;
         private Button btnProductOptions;
-        private Button btnReportesCust;
-        private Button btnResgistrarCust;
-        private Button btnReportesFact;
-        private Button btnRegistrarFact;
-        private Button btnReportesProd;
-        private Button btnRegistrarProd;
+        private Button btnReportesCustomer;
+        private Button btnResgistrarCustomer;
+        private Button btnReportesFacturas;
+        private Button btnRegistrarFacturas;
+        private Button btnReportesProductos;
+        private Button btnRegistrarProductos;
         private PictureBox pictureBox1;
         private Panel panelChilForm;
+        private PictureBox pictureBox2;
     }
 }

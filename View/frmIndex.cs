@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YojaDrink.View.Customer;
 
 namespace YojaDrink.View;
 
@@ -52,5 +53,64 @@ public partial class frmIndex : Form
     private void btnFacturaOptions_Click(object sender, EventArgs e)
     {
         ShowSubMenu(panelFactura);
+    }
+
+    private void pictureBox2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnResgistrarCustomer_Click(object sender, EventArgs e)
+    {
+        HideSubMenu();
+    }
+
+    private void btnReportesCustomer_Click(object sender, EventArgs e)
+    {
+        OpenChildForm(new frmCustomer());
+        //..
+        //Your code
+        //..
+        HideSubMenu();
+    }
+
+    private void btnRegistrarProductos_Click(object sender, EventArgs e)
+    {
+        HideSubMenu();
+    }
+
+    private void btnReportesProductos_Click(object sender, EventArgs e)
+    {
+        HideSubMenu();
+    }
+
+    private void btnRegistrarFacturas_Click(object sender, EventArgs e)
+    {
+        HideSubMenu();
+    }
+
+    private void btnReportesFacturas_Click(object sender, EventArgs e)
+    {
+        HideSubMenu();
+    }
+    private Form activeForm = null;
+    private void OpenChildForm(Form childFom)
+    {
+        if (activeForm != null)
+            activeForm.Close();
+        activeForm = childFom;
+        childFom.TopLevel = false;
+        childFom.FormBorderStyle = FormBorderStyle.None;
+        childFom.Dock = DockStyle.Fill;
+        panelChilForm.Controls.Add(childFom);
+        panelChilForm.Tag = childFom;
+        childFom.BringToFront();
+        childFom.Show();
+    }
+
+    private void btnHome_Click(object sender, EventArgs e)
+    {
+        if (activeForm != null)
+            activeForm.Close();
     }
 }

@@ -28,12 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmCustomer";
+            btnClose = new Button();
+            panel1 = new Panel();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            SuspendLayout();
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(24, 30);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(75, 23);
+            btnClose.TabIndex = 0;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Location = new Point(24, 77);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(617, 472);
+            panel1.TabIndex = 1;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEdit.Location = new Point(647, 77);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 23);
+            btnEdit.TabIndex = 2;
+            btnEdit.Text = "EDIT";
+            btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDelete.Location = new Point(647, 116);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "DELETE";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // frmCustomer
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(734, 561);
+            Controls.Add(btnDelete);
+            Controls.Add(btnEdit);
+            Controls.Add(panel1);
+            Controls.Add(btnClose);
+            Name = "frmCustomer";
+            Text = "frmCustomer";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnClose;
+        private Panel panel1;
+        private Button btnEdit;
+        private Button btnDelete;
     }
 }
