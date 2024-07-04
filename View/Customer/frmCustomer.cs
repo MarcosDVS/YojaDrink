@@ -21,5 +21,10 @@ namespace YojaDrink.View.Customer
         {
             this.Close();
         }
+
+        private void frmCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

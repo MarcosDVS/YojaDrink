@@ -112,5 +112,6 @@ public partial class frmIndex : Form
     {
         if (activeForm != null)
             activeForm.Close();
+        HideSubMenu();
     }
 }

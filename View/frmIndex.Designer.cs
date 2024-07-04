@@ -320,7 +320,6 @@
             ClientSize = new Size(934, 561);
             Controls.Add(panelChilForm);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             MinimumSize = new Size(950, 600);
             Name = "frmIndex";
             StartPosition = FormStartPosition.CenterScreen;
