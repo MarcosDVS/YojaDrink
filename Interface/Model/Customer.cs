@@ -12,9 +12,9 @@ public class Customer
 {
     [Key]
     public int Id { get; set; }
-    public string DocumentId { get; set; } = string.Empty;
-    public string Name { get; set; } = string.Empty;
-    public string SurNames { get; set; } = string.Empty;
+    public string DocumentId { get; set; } = null!;
+    public string Name { get; set; } = null!;
+    public string SurNames { get; set; } = null!;
     public string? PhoneNumber { get; set; }
     public string? Other { get; set; }
 

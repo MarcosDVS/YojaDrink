@@ -13,7 +13,7 @@ public class FacturaPago
     public int FacturaId { get; set; }
     public DateTime Date { get; set; }
     public decimal AmountPaid { get; set; }
-    public string Observation { get; set; }
+    public string? Observation { get; set; }
 
     #region Relaciones
     [ForeignKey(nameof(FacturaId))]

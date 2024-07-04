@@ -12,7 +12,7 @@ public class Product
     [Key]
     public int Id { get; set; }
     public string? BarCode { get; set; }
-    public string Description { get; set; } = string.Empty;
+    public string Description { get; set; } = null!;
     public int Stock { get; set; }
     public decimal PurchasePrice { get; set; }
     public decimal SellingPrice { get; set; }
