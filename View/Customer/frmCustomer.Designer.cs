@@ -32,6 +32,9 @@
             panel1 = new Panel();
             btnEdit = new Button();
             btnDelete = new Button();
+            dgCustomers = new DataGridView();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgCustomers).BeginInit();
             SuspendLayout();
             // 
             // btnClose
@@ -47,6 +50,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(dgCustomers);
             panel1.Location = new Point(24, 77);
             panel1.Name = "panel1";
             panel1.Size = new Size(617, 472);
@@ -72,6 +76,15 @@
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = true;
             // 
+            // dgCustomers
+            // 
+            dgCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgCustomers.Dock = DockStyle.Fill;
+            dgCustomers.Location = new Point(0, 0);
+            dgCustomers.Name = "dgCustomers";
+            dgCustomers.Size = new Size(617, 472);
+            dgCustomers.TabIndex = 0;
+            // 
             // frmCustomer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -83,6 +96,8 @@
             Controls.Add(btnClose);
             Name = "frmCustomer";
             Text = "frmCustomer";
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgCustomers).EndInit();
             ResumeLayout(false);
         }
 
@@ -92,5 +107,6 @@
         private Panel panel1;
         private Button btnEdit;
         private Button btnDelete;
+        private DataGridView dgCustomers;
     }
 }
