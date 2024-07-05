@@ -13,9 +13,9 @@ public class CustomerService
 {
     private readonly MyDbContext dbContext;
 
-    public CustomerService(MyDbContext dbContext)
+    public CustomerService()
     {
-        this.dbContext = dbContext;
+        this.dbContext = new MyDbContext();
     }
     public async Task<Result<List<Customer>>> Consultar(string filtro)
     {

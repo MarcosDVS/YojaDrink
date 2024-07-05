@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <Folder Include="View\Factura\" />
-    <Folder Include="View\Product\" />
-    <Folder Include="View\User\" />
   </ItemGroup>
 
   <ItemGroup>

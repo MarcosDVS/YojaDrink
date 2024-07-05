@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using YojaDrink.View.Customer;
 
 namespace YojaDrink.View;
 
 public partial class frmIndex : Form
 {
+    private frmCustomer customerFormInstance;
     public frmIndex()
     {
         InitializeComponent();
         CustomizeDesing();
+        customerFormInstance = new();
     }
     private void CustomizeDesing()
     {
@@ -59,15 +60,16 @@ public partial class frmIndex : Form
     {
 
     }
-
     private void btnResgistrarCustomer_Click(object sender, EventArgs e)
     {
+        frmCustomerForm customerForm = new(customerFormInstance);
+        customerForm.ShowDialog();
         HideSubMenu();
     }
 
     private void btnReportesCustomer_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new frmCustomer());
+        OpenChildForm(customerFormInstance);
         //..
         //Your code
         //..
@@ -93,7 +95,7 @@ public partial class frmIndex : Form
     {
         HideSubMenu();
     }
-    private Form activeForm = null;
+    private Form? activeForm = null;
     private void OpenChildForm(Form childFom)
     {
         if (activeForm != null)

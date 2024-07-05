@@ -1,4 +1,4 @@
-﻿namespace YojaDrink.View.Customer
+﻿namespace YojaDrink.View
 {
     partial class frmCustomer
     {
@@ -33,6 +33,8 @@
             dgCustomers = new DataGridView();
             btnEdit = new Button();
             btnDelete = new Button();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgCustomers).BeginInit();
             SuspendLayout();
@@ -56,9 +58,9 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(dgCustomers);
-            panel1.Location = new Point(12, 47);
+            panel1.Location = new Point(12, 77);
             panel1.Name = "panel1";
-            panel1.Size = new Size(644, 502);
+            panel1.Size = new Size(644, 472);
             panel1.TabIndex = 1;
             // 
             // dgCustomers
@@ -68,7 +70,7 @@
             dgCustomers.Dock = DockStyle.Fill;
             dgCustomers.Location = new Point(0, 0);
             dgCustomers.Name = "dgCustomers";
-            dgCustomers.Size = new Size(644, 502);
+            dgCustomers.Size = new Size(644, 472);
             dgCustomers.TabIndex = 0;
             // 
             // btnEdit
@@ -77,9 +79,9 @@
             btnEdit.BackColor = Color.Transparent;
             btnEdit.FlatAppearance.MouseOverBackColor = Color.Orange;
             btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold);
+            btnEdit.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold | FontStyle.Italic);
             btnEdit.ForeColor = Color.WhiteSmoke;
-            btnEdit.Location = new Point(662, 47);
+            btnEdit.Location = new Point(662, 77);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(60, 27);
             btnEdit.TabIndex = 2;
@@ -92,14 +94,38 @@
             btnDelete.BackColor = Color.Transparent;
             btnDelete.FlatAppearance.MouseOverBackColor = Color.DarkRed;
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold);
+            btnDelete.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold | FontStyle.Italic);
             btnDelete.ForeColor = Color.WhiteSmoke;
-            btnDelete.Location = new Point(662, 86);
+            btnDelete.Location = new Point(662, 116);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(60, 27);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtSearch.Location = new Point(423, 47);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(167, 23);
+            txtSearch.TabIndex = 4;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSearch.BackColor = Color.Transparent;
+            btnSearch.FlatAppearance.MouseOverBackColor = Color.MediumBlue;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold | FontStyle.Italic);
+            btnSearch.ForeColor = Color.WhiteSmoke;
+            btnSearch.Location = new Point(588, 47);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(68, 23);
+            btnSearch.TabIndex = 5;
+            btnSearch.Text = "SEARCH";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // frmCustomer
             // 
@@ -107,6 +133,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 30, 45);
             ClientSize = new Size(734, 561);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(panel1);
@@ -117,6 +145,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgCustomers).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -126,5 +155,7 @@
         private Button btnEdit;
         private Button btnDelete;
         private DataGridView dgCustomers;
+        private TextBox txtSearch;
+        private Button btnSearch;
     }
 }
