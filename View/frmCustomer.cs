@@ -14,13 +14,16 @@ namespace YojaDrink.View;
 
 public partial class frmCustomer : Form
 {
-    private CustomerService customerService;
+    public CustomerService customerService;
     public string Filtro { get; set; } = "";
-    public string? Message { get; set; } = "";
     public frmCustomer()
     {
         InitializeComponent();
-        customerService = new CustomerService();
+        customerService = new();
+    }
+    private async void frmCustomer_Load(object sender, EventArgs e)
+    {
+        await CargarDatos();
     }
     public async Task CargarDatos()
     {
@@ -32,13 +35,25 @@ public partial class frmCustomer : Form
         }
         else
         {
-            Message = customers.Message;
-            MessageBox.Show(Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(customers.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-    private async void frmCustomer_Load(object sender, EventArgs e)
+
+    private int? GetId()
     {
-        await CargarDatos();
+        try
+        {
+            return int.Parse
+            (
+                dgCustomers.Rows[dgCustomers.CurrentRow.Index]
+                .Cells[0]
+                .Value.ToString()
+            );
+        }
+        catch
+        {
+            return null;
+        }
     }
     private void btnClose_Click(object sender, EventArgs e)
     {
@@ -49,5 +64,50 @@ public partial class frmCustomer : Form
     {
         Filtro = txtSearch.Text;
         await CargarDatos();
+    }
+
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+        int? customerId = GetId();
+
+        if (dgCustomers.SelectedRows.Count > 0)
+        {
+            // Preguntar confirmación
+            DialogResult question = MessageBox.Show("Are you sure you want to edit it?", "Confirm edition", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (question == DialogResult.Yes)
+            {
+                if (customerId != null)
+                {
+                    frmCustomerForm customerForm = new(this, customerId);
+                    customerForm.ShowDialog();
+
+                }
+            }
+        }
+        else
+        {
+            MessageBox.Show("Please select a customer to edit.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
+
+    private async void btnDelete_Click(object sender, EventArgs e)
+    {
+        int? customerId = GetId();
+        var result = await customerService.Eliminar(customerId);
+        // Preguntar confirmación
+        DialogResult question = MessageBox.Show("Are you sure you want to delete it?", "Confirm deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (question == DialogResult.Yes)
+        {
+            if (result.Success)
+            {
+                MessageBox.Show(result.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await CargarDatos(); // Refrescar el DataGridView
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

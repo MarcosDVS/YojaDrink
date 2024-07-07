@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YojaDrink.Interface.Context;
 using YojaDrink.Interface.Model;
 using YojaDrink.Interface.Service;
 
@@ -14,16 +15,33 @@ namespace YojaDrink.View;
 
 public partial class frmCustomerForm : Form
 {
-    public string? Message { get; set; } = "";
-    private CustomerService customerService;
     frmCustomer _parentForm;
+    public string Filtro { get; set; } = "";
     public Customer request { get; set; } = new();
+    public int? id;
 
-    public frmCustomerForm(frmCustomer parentForm)
+    public frmCustomerForm(frmCustomer parentForm, int? id = null)
     {
         InitializeComponent();
-        customerService = new();
         this._parentForm = parentForm;
+        this.id = id;
+        if (id != null)
+        {
+            CargarDatos();
+        }
+    }
+    private async void CargarDatos()
+    {
+        var result = await _parentForm.customerService.Consultar(Filtro);
+        request = result.Data.Find(c=> c.Id == id);
+        if (request != null)
+        {
+            txtName.Text = request.Name;
+            txtSurNames.Text = request.SurNames;
+            txtDocumentID.Text = request.DocumentId;
+            txtPhoneNumber.Text = request.PhoneNumber;
+            rhOther.Text = request.Other;
+        }
     }
     private void Clean()
     {
@@ -36,12 +54,11 @@ public partial class frmCustomerForm : Form
     private async void btnSave_Click(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtSurNames.Text) ||
-            string.IsNullOrWhiteSpace(txtDocumentID.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ||
-            string.IsNullOrWhiteSpace(rhOther.Text))
+            string.IsNullOrWhiteSpace(txtDocumentID.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
         {
-            MessageBox.Show("Please enter both Name and Last Name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Please enter all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
-        };
+        }
 
         // Create a new customer object
         request.Name = txtName.Text;
@@ -50,18 +67,40 @@ public partial class frmCustomerForm : Form
         request.PhoneNumber = txtPhoneNumber.Text;
         request.Other = rhOther.Text;
 
-
-        var result = await customerService.Crear(request);
-        if (result.Success)
+        try
         {
-            MessageBox.Show(result.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Result result;
+            if (id == null)
+            {
+                // Create a new customer object
+                result = await _parentForm.customerService.Crear(request);
+            }
+            else
+            {
+                // Call the Modificar method to update the customer
+                result = await _parentForm.customerService.Modificar(request);
+            }
+
+            if (result.Success)
+            {
+                MessageBox.Show(result.Message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Call the ReloadParentData method to update the DataGridView in the parent form
+                await _parentForm.CargarDatos();
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error saving customer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
             Clean();
-            await _parentForm.CargarDatos();
             this.Close();
         }
-        else
-        {
-            MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
     }
+
 }

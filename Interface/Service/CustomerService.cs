@@ -51,7 +51,7 @@ public class CustomerService
         {
             dbContext.Customers.Add(request);
             await dbContext.SaveChangesAsync();
-            return new Result() { Message = "Ok", Success = true };
+            return new Result() { Message = "Customer added successfully.", Success = true };
         }
         catch (Exception E)
         {
@@ -63,29 +63,26 @@ public class CustomerService
     {
         try
         {
-            var existing = await dbContext.Customers
-                .FirstOrDefaultAsync(c => c.Id == request.Id);
+            var existing = await dbContext.Customers.FirstOrDefaultAsync(c => c.Id == request.Id);
             if (existing == null)
                 return new Result() { Message = "Customer not found", Success = false };
 
-            if (existing != null)
-            {
-                existing.DocumentId = request.DocumentId;
-                existing.Name = request.Name;
-                existing.SurNames = request.SurNames;
-                existing.PhoneNumber = request.PhoneNumber;
-                existing.Other = request.Other;
-                dbContext.SaveChanges();
-            }
+            existing.DocumentId = request.DocumentId;
+            existing.Name = request.Name;
+            existing.SurNames = request.SurNames;
+            existing.PhoneNumber = request.PhoneNumber;
+            existing.Other = request.Other;
 
-            return new Result() { Message = "Ok", Success = true };
+            await dbContext.SaveChangesAsync(); // Usar SaveChangesAsync para guardar cambios asincrónicamente
+
+            return new Result() { Message = "Customer updated successfully.", Success = true };
         }
         catch (Exception E)
         {
-
             return new Result() { Message = E.Message, Success = false };
         }
     }
+
     public async Task<Result> Eliminar(int? id)
     {
         try
@@ -97,7 +94,7 @@ public class CustomerService
 
             dbContext.Customers.Remove(entity);
             await dbContext.SaveChangesAsync();
-            return new Result() { Message = "Ok", Success = true };
+            return new Result() { Message = "Customer deleted successfully.", Success = true };
         }
         catch (Exception E)
         {

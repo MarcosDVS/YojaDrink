@@ -12,13 +12,14 @@ namespace YojaDrink.View;
 
 public partial class frmIndex : Form
 {
-    private frmCustomer customerFormInstance;
+    frmCustomer customerReport;
+    private Form? activeForm = null; //para mostrar todos los formularios en frmIndex 
     public frmIndex()
     {
         InitializeComponent();
         CustomizeDesing();
-        customerFormInstance = new();
     }
+    #region Funciones para el menu desplegable
     private void CustomizeDesing()
     {
         panelCustomer.Visible = false;
@@ -40,7 +41,9 @@ public partial class frmIndex : Form
         }
         else subMenu.Visible = false;
     }
-
+    #endregion
+    
+    #region Botones desplegables
     private void btnCustomerOptions_Click(object sender, EventArgs e)
     {
         ShowSubMenu(panelCustomer);
@@ -55,24 +58,32 @@ public partial class frmIndex : Form
     {
         ShowSubMenu(panelFactura);
     }
-
+    #endregion
     private void pictureBox2_Click(object sender, EventArgs e)
     {
 
     }
+    #region Opciones de los botones desplegables
     private void btnResgistrarCustomer_Click(object sender, EventArgs e)
     {
-        frmCustomerForm customerForm = new(customerFormInstance);
+        
+        frmCustomerForm customerForm = new(customerReport);
         customerForm.ShowDialog();
         HideSubMenu();
     }
 
     private void btnReportesCustomer_Click(object sender, EventArgs e)
     {
-        OpenChildForm(customerFormInstance);
-        //..
-        //Your code
-        //..
+        if (activeForm != null)
+        {
+            activeForm.Close();
+            activeForm = null;
+        }
+        else
+        {
+            
+            OpenChildForm(new frmCustomer());
+        }
         HideSubMenu();
     }
 
@@ -95,7 +106,9 @@ public partial class frmIndex : Form
     {
         HideSubMenu();
     }
-    private Form? activeForm = null;
+    #endregion
+
+    #region Mostrar todos los formularios en frmIndex especificamente en el panelChilForm
     private void OpenChildForm(Form childFom)
     {
         if (activeForm != null)
@@ -109,7 +122,7 @@ public partial class frmIndex : Form
         childFom.BringToFront();
         childFom.Show();
     }
-
+    #endregion
     private void btnHome_Click(object sender, EventArgs e)
     {
         if (activeForm != null)

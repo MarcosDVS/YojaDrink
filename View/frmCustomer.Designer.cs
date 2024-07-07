@@ -28,15 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnClose = new Button();
             panel1 = new Panel();
             dgCustomers = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            documentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            surNamesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            otherDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            customerBindingSource = new BindingSource(components);
             btnEdit = new Button();
             btnDelete = new Button();
             txtSearch = new TextBox();
             btnSearch = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgCustomers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // btnClose
@@ -66,12 +78,86 @@
             // dgCustomers
             // 
             dgCustomers.AllowDrop = true;
+            dgCustomers.AutoGenerateColumns = false;
+            dgCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgCustomers.BackgroundColor = Color.FromArgb(45, 66, 91);
+            dgCustomers.BorderStyle = BorderStyle.None;
+            dgCustomers.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgCustomers.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, documentIdDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, surNamesDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, otherDataGridViewTextBoxColumn });
+            dgCustomers.Cursor = Cursors.Hand;
+            dgCustomers.DataSource = customerBindingSource;
             dgCustomers.Dock = DockStyle.Fill;
+            dgCustomers.EnableHeadersVisualStyles = false;
             dgCustomers.Location = new Point(0, 0);
+            dgCustomers.MultiSelect = false;
             dgCustomers.Name = "dgCustomers";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Black;
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgCustomers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgCustomers.RowHeadersVisible = false;
+            dataGridViewCellStyle3.BackColor = Color.LightGray;
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dgCustomers.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgCustomers.Size = new Size(644, 472);
             dgCustomers.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // documentIdDataGridViewTextBoxColumn
+            // 
+            documentIdDataGridViewTextBoxColumn.DataPropertyName = "DocumentId";
+            documentIdDataGridViewTextBoxColumn.HeaderText = "DocumentId";
+            documentIdDataGridViewTextBoxColumn.Name = "documentIdDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // surNamesDataGridViewTextBoxColumn
+            // 
+            surNamesDataGridViewTextBoxColumn.DataPropertyName = "SurNames";
+            surNamesDataGridViewTextBoxColumn.HeaderText = "SurNames";
+            surNamesDataGridViewTextBoxColumn.Name = "surNamesDataGridViewTextBoxColumn";
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            // 
+            // otherDataGridViewTextBoxColumn
+            // 
+            otherDataGridViewTextBoxColumn.DataPropertyName = "Other";
+            otherDataGridViewTextBoxColumn.HeaderText = "Other";
+            otherDataGridViewTextBoxColumn.Name = "otherDataGridViewTextBoxColumn";
+            // 
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Interface.Model.Customer);
             // 
             // btnEdit
             // 
@@ -87,6 +173,7 @@
             btnEdit.TabIndex = 2;
             btnEdit.Text = "EDIT";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -102,6 +189,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // txtSearch
             // 
@@ -144,6 +232,7 @@
             Load += frmCustomer_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgCustomers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -157,5 +246,12 @@
         private DataGridView dgCustomers;
         private TextBox txtSearch;
         private Button btnSearch;
+        private BindingSource customerBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn documentIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn surNamesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn otherDataGridViewTextBoxColumn;
     }
 }
